@@ -539,6 +539,8 @@ public class NIOServerCnxnFactory extends ServerCnxnFactory {
     /**
      * This thread is responsible for closing stale connections so that
      * connections on which no session is established are properly expired.
+     *
+     * 专门用来关闭会话过期的连接的线程
      */
     private class ConnectionExpirerThread extends ZooKeeperThread {
 

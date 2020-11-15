@@ -72,6 +72,7 @@ public class QuorumMaj implements QuorumVerifier {
     public QuorumMaj(Map<Long, QuorumServer> allMembers) {
         this.allMembers = allMembers;
         for (QuorumServer qs : allMembers.values()) {
+            // 过滤掉所有的OBSERVER, 只统计PARTICIPANT/2 数目
             if (qs.type == LearnerType.PARTICIPANT) {
                 votingMembers.put(Long.valueOf(qs.id), qs);
             } else {
